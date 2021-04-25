@@ -4,6 +4,8 @@
 
 On GPU, we also need to take advantage of the low-latency cache. There are rich opportunities on GPUs for us to exploit cache-level data re-use. More details could be found in the official document of [CUTLASS](https://github.com/NVIDIA/cutlass/blob/master/media/docs/efficient_gemm.md).
 
+All questions are encouraged to sent to [yujiazhai94@gmail.com](mailto:yujiazhai94@gmail.com).
+
 # Hardware platforms and software configurations
 
 * We compiled the program with ```gcc 7.3.0``` under Ubuntu 18.04.5 LTS.
