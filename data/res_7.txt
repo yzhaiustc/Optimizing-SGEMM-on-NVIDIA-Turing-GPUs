@@ -1,0 +1,72 @@
+
+M=N=K=256:
+Average elasped time: 0.000028 second, performance: 1197.551494 GFLOPS.
+
+M=N=K=512:
+Average elasped time: 0.000081 second, performance: 3294.430418 GFLOPS.
+
+M=N=K=768:
+Average elasped time: 0.000198 second, performance: 4580.119967 GFLOPS.
+
+M=N=K=1024:
+Average elasped time: 0.000499 second, performance: 4304.775339 GFLOPS.
+
+M=N=K=1280:
+Average elasped time: 0.000863 second, performance: 4862.640466 GFLOPS.
+
+M=N=K=1536:
+Average elasped time: 0.001275 second, performance: 5684.879405 GFLOPS.
+
+M=N=K=1792:
+Average elasped time: 0.002209 second, performance: 5210.387121 GFLOPS.
+
+M=N=K=2048:
+Average elasped time: 0.003275 second, performance: 5246.502304 GFLOPS.
+
+M=N=K=2304:
+Average elasped time: 0.004663 second, performance: 5245.761972 GFLOPS.
+
+M=N=K=2560:
+Average elasped time: 0.007505 second, performance: 4471.209737 GFLOPS.
+
+M=N=K=2816:
+Average elasped time: 0.008435 second, performance: 5294.952332 GFLOPS.
+
+M=N=K=3072:
+Average elasped time: 0.010910 second, performance: 5314.605687 GFLOPS.
+
+M=N=K=3328:
+Average elasped time: 0.013578 second, performance: 5429.490642 GFLOPS.
+
+M=N=K=3584:
+Average elasped time: 0.016769 second, performance: 5490.766631 GFLOPS.
+
+M=N=K=3840:
+Average elasped time: 0.020440 second, performance: 5540.438827 GFLOPS.
+
+M=N=K=4096:
+Average elasped time: 0.025022 second, performance: 5492.795180 GFLOPS.
+
+M=N=K=4352:
+Average elasped time: 0.029461 second, performance: 5595.627367 GFLOPS.
+
+M=N=K=4608:
+Average elasped time: 0.034828 second, performance: 5618.716839 GFLOPS.
+
+M=N=K=4864:
+Average elasped time: 0.041104 second, performance: 5599.222589 GFLOPS.
+
+M=N=K=5120:
+Average elasped time: 0.048889 second, performance: 5490.656949 GFLOPS.
+
+M=N=K=5376:
+Average elasped time: 0.057474 second, performance: 5406.788425 GFLOPS.
+
+M=N=K=5632:
+Average elasped time: 0.066891 second, performance: 5341.341961 GFLOPS.
+
+M=N=K=5888:
+Average elasped time: 0.077130 second, performance: 5293.092959 GFLOPS.
+
+M=N=K=6144:
+Average elasped time: 0.088514 second, performance: 5240.470775 GFLOPS.
