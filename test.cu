@@ -1,4 +1,3 @@
-//nvcc -std=c++11 -O3 -I /usr/local/cuda-11.0/include/ -I /usr/local/cuda-11.0/samples/common/inc/ -L /usr/local/cuda-11.0/lib64/ -lcudart -lcublas test.cu
 #include <stdio.h>
 #include <stdlib.h>
 #include <helper_string.h> 
