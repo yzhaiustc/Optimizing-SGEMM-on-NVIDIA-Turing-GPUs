@@ -19,7 +19,7 @@ Just three steps.
 
 # Step-wise Optimizations
 
-Here we takes the column-major implemetation for SGEMM. Both A and B are not transformed.
+Here we take the column-major implemetation for SGEMM. Both A and B are not transposed.
 
 ## Kernel 1 (naive version)
 [source code](https://www.cs.ucr.edu/~yzhai015/GPU_GEMM/kernel1.cuh)
