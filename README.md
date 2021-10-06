@@ -37,7 +37,7 @@ In short, this version adds cache blocking upon [the previous version](https://w
 ## Kernel 3 (minor update on Kernel2)
 [source code](https://github.com/yzhaiustc/Optimizing-SGEMM-on-NVIDIA-Turing-GPUs/blob/main/include/kernel3.cuh)
 
-We bring a simple optimization upon [kernel 2](https://www.cs.ucr.edu/~yzhai015/GPU_GEMM/kernel2.cuh) here: storing ```threadIdx.x``` before re-using it massively, in order to reduce living registers and benefit the compiler optimization. The performance slightly improves in this step.
+We bring a simple optimization upon [kernel 2](https://github.com/yzhaiustc/Optimizing-SGEMM-on-NVIDIA-Turing-GPUs/blob/main/include/kernel2.cuh) here: storing ```threadIdx.x``` before re-using it massively, in order to reduce living registers and benefit the compiler optimization. The performance slightly improves in this step.
 
 ![image](https://github.com/yzhaiustc/Optimizing-SGEMM-on-NVIDIA-Turing-GPUs/blob/main/figures/Kernel2.png)
 
@@ -94,10 +94,20 @@ Since each warp contains 32 threads and the memory accesses to the same memory a
 ## Kernel 11 (Kernel10 + double buffer to cancel a sync.)
 [source code](https://github.com/yzhaiustc/Optimizing-SGEMM-on-NVIDIA-Turing-GPUs/blob/main/include/kernel11.cuh)
 
-We introduce the double buffer strategy for the shared memory buffers to cancel an unnecessary syncthreads inside the loop body, pushing the performance to the limit - mostly same as the close-sourced NVIDIA cuBLAS.
+We introduce the double buffer strategy for the shared memory buffers to cancel an unnecessary syncthreads inside the loop body, pushing the performance to the limit.
 
 ![image](https://github.com/yzhaiustc/Optimizing-SGEMM-on-NVIDIA-Turing-GPUs/blob/main/figures/Kernel10.png)
 
 ## Compare with cuBLAS
 
 ![image](https://github.com/yzhaiustc/Optimizing-SGEMM-on-NVIDIA-Turing-GPUs/blob/main/figures/Kernel11.png)
+
+The performance of our best kernel is mostly same as the close-source NVIDIA cuBLAS. Let us compute their efficiencies here.
+Peak performance of NVIDIA RTX 2080 Super (GFLOPS) = boost frequency (GHz) * # of CUDA cores * 2 (FMA).
+Therefore, we have peak perf = 1.815 GHz * 3072 * 2 = 11151.36 GFLOPS = 11.15 TFLOPS.
+Our best performance is 10.384 TFLOPS, while NVIDIA cuBLAS' best perf is 10.717 TFLOPS, both are observed at the largest input: 6144x6144x6144 SGEMM.
+Translating into efficiency, we reach 93.1% of the peak perf while cuBLAS reaches 96.1% of the peak.
+
+## Some extra notes
+
+It should be noted that the efficiency of both ours and cuBLAS can further increase when we feed them with larger input matrices. This is because introducing more parallelisms helps to better hide the latency. To shorten the test time on my local machine, I trunctate test cases at such a small input (m=n=k=6144). I would encourage interested readers to do more tests by oneself. In addition, one might also be interested in the performance of irregularly shaped SGEMM, such as i) tall-and-skinny matrices or ii) matrices when k is much larger than both m and n. For the tall-and-skinny matrices, one could choose different parameters on macro kernels, micro kernels and the warp-level tiling. For the later case where k is much larger than m and n, one needs to obtain parallelisms by splitting k with a mutex lock added --- this is indeed more complicated but one could still borrow brilliant ideas from source codes of CUTLASS.
