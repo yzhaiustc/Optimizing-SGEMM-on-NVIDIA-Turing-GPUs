@@ -66,9 +66,16 @@ int main(int argc, char **argv){
 
 
         cudaEventRecord(beg);
-        for (n_count=0;n_count<N;n_count++){
-            test_kernel(kernel_num,m,n,k,alpha,dA,dB,beta,dC);
+        if (kernel_num != 0){
+            for (n_count=0;n_count<N;n_count++){
+                test_kernel(kernel_num,m,n,k,alpha,dA,dB,beta,dC);
+            }
+        }else{
+            for (n_count=0;n_count<N;n_count++){
+                test_kernel(kernel_num,m,n,k,alpha,dA,dB,beta,dC, err);
+            }
         }
+
         cudaEventRecord(end);
         cudaEventSynchronize(beg);
         cudaEventSynchronize(end);

@@ -1,3 +1,8 @@
+#include <cuda_runtime.h>
+#include <cublas_v2.h>
+#include <helper_functions.h>
+#include <helper_cuda.h>
+#define FLOAT float
 #define FLOAT float
 #define INT int
 
@@ -29,4 +34,4 @@ void randomize_matrix(FLOAT* mat, int N);
 double get_sec();
 bool verify_matrix(FLOAT *mat1, FLOAT *mat2, int n);
 void copy_matrix(FLOAT *src, FLOAT *dest, int n);
-void test_kernel(int kernel_num,INT m,INT n,INT k,FLOAT alpha,FLOAT *A,FLOAT *B,FLOAT beta,FLOAT *C);
+void test_kernel(int kernel_num,INT m,INT n,INT k,FLOAT alpha,FLOAT *A,FLOAT *B,FLOAT beta,FLOAT *C, cublasHandle_t err=nullptr);

@@ -61,8 +61,7 @@ void copy_matrix(FLOAT *src, FLOAT *dest, int n){
 
 
 
-void test_cublas(INT M, INT N, INT K, FLOAT alpha, FLOAT *A, FLOAT *B, FLOAT beta, FLOAT *C){
-    cublasHandle_t err; cublasCreate(&err);
+void test_cublas(cublasHandle_t err, INT M, INT N, INT K, FLOAT alpha, FLOAT *A, FLOAT *B, FLOAT beta, FLOAT *C){
     cudaDeviceSynchronize();
     cublasSgemm(err, CUBLAS_OP_N, CUBLAS_OP_N, M, N, K, &alpha, A, M, B, K, &beta, C, M);
     cudaDeviceSynchronize();
@@ -156,9 +155,9 @@ void test_mysgemm_v11(INT M, INT N, INT K, FLOAT alpha, FLOAT *A, FLOAT *B, FLOA
     cudaDeviceSynchronize();
 }
 
-void test_kernel(int kernel_num,INT m,INT n,INT k,FLOAT alpha,FLOAT *A,FLOAT *B,FLOAT beta,FLOAT *C){
+void test_kernel(int kernel_num,INT m,INT n,INT k,FLOAT alpha,FLOAT *A,FLOAT *B,FLOAT beta,FLOAT *C, cublasHandle_t err){
     switch (kernel_num){
-        case 0: test_cublas(m,n,k,alpha,A,B,beta,C); break;
+        case 0: test_cublas(err, m,n,k,alpha,A,B,beta,C); break;
         case 1: test_mysgemm_v1(m,n,k,alpha,A,B,beta,C); break;
         case 2: test_mysgemm_v2(m,n,k,alpha,A,B,beta,C); break;
         case 3: test_mysgemm_v3(m,n,k,alpha,A,B,beta,C); break;
