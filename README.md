@@ -2,7 +2,7 @@
 
 "HPC is all about reducing data movement". Optimizing GEMM on GPU and CPU platforms share the same idea: to hide the memory latency with massive parallelism, cache-/register-level data re-use, and manual prefetching. On CPUs, both instruction-level and data-level parallelisms are exploited as well as delicate prefetching schemes are designed to hide the memory latency. Meanwhile, we partition the input matrices and pack them before computing to ensure a "smooth and low-latancy" computing kernel. The prefetching for matrix ```C``` is especially critical to the CPU GEMM performance.
 
-On GPUs, we also need to take advantage of the low-latency "cache" --- shared memory. There are rich opportunities on GPUs for us to exploit cache-level data re-use. More details could be found in the official document of [CUTLASS](https://github.com/NVIDIA/cutlass/blob/master/media/docs/efficient_gemm.md).
+On GPUs, we also need to take advantage of the low-latency "cache" --- shared memory. There are rich opportunities on GPUs for us to exploit data re-use on both shared memory level and register level. More details could be found in the official document of [CUTLASS](https://github.com/NVIDIA/cutlass/blob/master/media/docs/efficient_gemm.md).
 
 All questions are encouraged to sent to [yujiazhai94@gmail.com](mailto:yujiazhai94@gmail.com).
 
