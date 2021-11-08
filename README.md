@@ -4,7 +4,7 @@
 
 On GPUs, we also need to take advantage of the low-latency "cache" --- shared memory. There are rich opportunities on GPUs for us to exploit data re-use on both shared memory level and register level. More details could be found in the official document of [CUTLASS](https://github.com/NVIDIA/cutlass/blob/master/media/docs/efficient_gemm.md).
 
-All questions are encouraged to sent to [yujiazhai94@gmail.com](mailto:yujiazhai94@gmail.com).
+All questions are encouraged to send to [yujiazhai94@gmail.com](mailto:yujiazhai94@gmail.com).
 
 # Hardware platforms and software configurations
 
