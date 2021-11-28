@@ -4,7 +4,7 @@
 #define B(i,j) B[(i) + (j)*ldb]
 #define C(i,j) C[(i) + (j)*ldc]
 #define sa6(i,j) sa6[((j)<<5) + (i)]
-#define sb6(i,j) sb6[((i)<<5) + (j)]
+#define sb6(i,j) sb6[((j)<<5) + (i)]
 #define MS 32
 #define NS 32
 #define KS 32
@@ -38,7 +38,7 @@ void mysgemm_v6(int M, int N, int K, float alpha, float* A, float* B, float beta
         __syncthreads();
         #pragma unroll
         for (int inner_k_count=0;inner_k_count<KS;inner_k_count++){
-            b00 = sb6(col,inner_k_count);
+            b00 = sb6(col, inner_k_count);
             Cres.x += sa6(row1,inner_k_count) * b00;
             Cres.y += sa6(row2,inner_k_count) * b00;
             Cres.z += sa6(row3,inner_k_count) * b00;
