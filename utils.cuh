@@ -1,7 +1,5 @@
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
-#include <helper_functions.h>
-#include <helper_cuda.h>
 #define FLOAT float
 #define FLOAT float
 #define INT int

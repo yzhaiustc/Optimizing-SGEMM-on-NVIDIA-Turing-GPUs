@@ -3,11 +3,8 @@
 #include <sys/time.h>
 #include "utils.cuh"
 #include "kernels.cuh"
-#include <helper_string.h> 
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
-#include <helper_functions.h>
-#include <helper_cuda.h>
 #define FLOAT float
 #define INT int
 #define CEIL_DIV(m,n) ( (m) + (n) - 1 ) / (n)
