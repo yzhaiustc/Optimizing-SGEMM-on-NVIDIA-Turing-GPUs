@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <helper_string.h> 
 #include <cuda_runtime.h>
 #include <cublas_v2.h>
-#include <helper_functions.h>
-#include <helper_cuda.h>
 #include <sys/time.h>
 #include "utils.cuh"
 #define MYSGEMM mysgemm_naive // select the kernel here
